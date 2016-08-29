@@ -11,6 +11,7 @@ class EnterprisesController < ApplicationController
   # GET /enterprises/1
   # GET /enterprises/1.json
   def show
+    @complaint = Complaint.new
   end
 
   # GET /enterprises/new
@@ -49,6 +50,7 @@ class EnterprisesController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @enterprise.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

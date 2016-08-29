@@ -5,5 +5,39 @@
   <%= @enterprise.name %>
 </p>
 
+<%= form_for([@enterprise,@complaint]) do |f| %>
+  <% if @enterprise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enterprise.errors.count, "error") %> prohibited this enterprise from being saved:</h2>
+
+      <ul>
+      <% @enterprise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area :content%>
+  </div>
+  <div class="field">
+    <%= f.submit 'Reclamar' %>
+  </div>
+  <div class="actions">
+    
+  </div>
+<% end %>
+
+<% @enterprise.complaints.each do |complaint| %>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <p><%= complaint.user.email%></p>
+            <p><%= complaint.content %></p>
+        </div>
+    </div>
+<%end%>
+
 <%= link_to 'Edit', edit_enterprise_path(@enterprise) %> |
 <%= link_to 'Back', enterprises_path %>

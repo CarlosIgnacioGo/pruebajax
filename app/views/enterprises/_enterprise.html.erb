@@ -1,6 +1,6 @@
 <tr id="enterprise-<%= enterprise.id %>">
 	<td><%= enterprise.name %></td>
 	<td><%= link_to 'Show', enterprise %></td>
-	<td><%= link_to 'Edit', edit_enterprise_path(enterprise) %></td>
+	<td><%= link_to 'Edit', edit_enterprise_path(enterprise), :remote => true %></td>
 	<td><%= link_to 'Destroy', enterprise, method: :delete, data: { confirm: 'Are you sure?',remote: true } %></td>
 </tr>
