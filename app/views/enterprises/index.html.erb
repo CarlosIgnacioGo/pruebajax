@@ -1,4 +1,9 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
+
 <p id="notice"><%= notice %></p>
+
+<%= column_chart Enterprise.joins(:complaints).group('enterprises.name').limit(10).count %>
 
 <h1>Listing Enterprises</h1>
 <%=render 'form' %>

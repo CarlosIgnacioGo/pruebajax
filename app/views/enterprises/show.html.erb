@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 
+<p id="notice"><%= notice %></p>
+<%= line_chart Complaint.group_by_day(:created_at).count %>
 <p>
   <strong>Name:</strong>
   <%= @enterprise.name %>
@@ -17,7 +19,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.text_area :content%>
   </div>
@@ -29,15 +30,11 @@
   </div>
 <% end %>
 
-<% @enterprise.complaints.each do |complaint| %>
-    <hr>
-    <div class="row">
-        <div class="col-md-12">
-            <p><%= complaint.user.email%></p>
-            <p><%= complaint.content %></p>
-        </div>
-    </div>
-<%end%>
+<div id="queja">
+	<% @enterprise.complaints.each do |complaint| %>
+	    <%= render complaint %>
+	<%end%>
+</div>
 
 <%= link_to 'Edit', edit_enterprise_path(@enterprise) %> |
 <%= link_to 'Back', enterprises_path %>

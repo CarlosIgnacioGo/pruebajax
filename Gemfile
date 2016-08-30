@@ -34,6 +34,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'railroady'
+gem "chartkick"
+gem 'groupdate'
+gem 'activeadmin', github: 'activeadmin'
+gem 'faker'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
